@@ -1,0 +1,27 @@
+#statuses {
+  margin: 2%;
+}
+
+.status {
+  width: 100%;
+  height: 100%;
+}
+
+.user img {
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+}
+
+.user-on {
+  color: green;
+}
+
+.user-off {
+  color: red;
+}
+
+.footer {
+  background-color: #73AFB6;
+  color: white;
+}

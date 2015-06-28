@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FCC - TwitchTV API</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="row" id="header">
+        <div class="col-md-10 col-md-offset-1 text-center">
+          <h1>FCC - TwitchTV API</h1>
+        </div>
+      </div><!-- end header -->
+
+      <div class="row" id="statuses">
+        <div class="col-md-4 text-center">
+        <button type="button" class="btn btn-lg status" id="all"><i class="fa fa-users fa-2x"></i> All</button>
+        </div>
+
+        <div class="col-md-4 text-center">
+        <button type="button" class="btn btn-lg status" id="online"><i class="fa fa-check-circle fa-2x"></i> Online</button>
+        </div>
+
+        <div class="col-md-4 text-center">
+        <button type="button" class="btn btn-lg status" id="offline"><i class="fa fa-bed fa-2x"></i> Offline</button>
+        </div>
+      </div><!-- end statuses-->
+
+      <div class="row search-box">
+        <form>
+          <div class="form-group">
+            <input type="search" class="form-control" placeholder="FreeCodeCamp" />
+          </div><!-- end form-control -->
+        </form>
+      </div><!-- end search-box -->
+
+      <div class="row user-list">
+
+        <!-- Text
+        <div class="col-md-2 user">
+        <img src="http://static-cdn.jtvnw.net/jtv_user_pictures/medrybw-profile_image-19fce7e1b0d6c194-300x300.jpeg" alt="Medrynbw Profile">
+        <span class="user-name">Steven</span>
+        <i class="fa fa-check-square-o fa-lg user-on"></i>
+        </div><!-- end user -->
+        More -->
+
+      </div><!-- end user-list -->
+
+      <div class="footer text-center navbar-fixed-bottom">
+        <div class="row">
+          <div class="col-md-4 user col-md-offset-4">
+            <p>FOOTER INFORMATION HERE</p>
+          </div>
+        </div><!-- end row -->
+      </div><!-- end footer -->
+
+    </div><!-- end container -->
+
+    <!-- Add jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- script to grab JSON data -->
+    <script src="js/jquery.js"></script>
+  </body>
+</html>
