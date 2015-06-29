@@ -48,8 +48,49 @@ $(document).ready(function() {
     });
   });
 
-  console.log(allUsers);
+  // functions to create the DOM structure to then appended to the .user-list
+  // DOM node
+  function redrawUserList(arr){
+    var nodeStructure = '';
 
-  // TODO
-  // functions to create the DOM structure appended to the .user-list DOM node
+    arr.forEach(function(userObject) {
+      var icon;
+      var streamStatus = userObject["streamStatus"];
+
+      // choose correct icon based on streamStatus
+      if (streamStatus === "user-on") {
+        icon = "fa-check-square-o";
+      }
+      else {
+        icon = "fa-times";
+      }
+
+      // verbose in order to make structure of node clear
+      nodeStructure += '<div class="col-md-3 user">';
+      nodeStructure += '<a href="http://www.twitch.tv/' + userObject["userName"] + '">';
+      nodeStructure += '<img src="' + userObject["img"] +'" alt="' + userObject["userName"] + ' Profile">';
+      nodeStructure += '<span class="user-name"> ' + userObject["userName"] + '</span> ';
+      nodeStructure += '<i class="fa fa-lg ' + icon + ' ' + streamStatus + '"></i>';
+      nodeStructure += '</a></div>';
+    });
+
+    // find the .user-list element on the DOM,clear it and append newly created node(s) to it
+    $(".user-list").empty();
+    $(".user-list").append(nodeStructure);
+  };
+
+  // add functionality to my #all button
+  $("#all").click(function() {
+    redrawUserList(allUsers);
+  });
+
+  // add functionality to my #online button
+  $("#online").click(function() {
+    redrawUserList(onlineUsers);
+  });
+
+  // add functionality to my #online button
+  $("#offline").click(function() {
+    redrawUserList(offlineUsers);
+  });
 });
