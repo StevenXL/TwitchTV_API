@@ -93,4 +93,27 @@ $(document).ready(function() {
   $("#offline").click(function() {
     redrawUserList(offlineUsers);
   });
+
+  // functionality for the search bar
+  // Note that the below CSS selector is called an attribute selector
+  $('input[type="search"]').keyup(function() {
+      var searchTerm = $(this).val();
+
+      // normalize searchTerm;
+      searchTerm = searchTerm.toLowerCase();
+
+      // clear the current .user-list
+      $(".user-list").empty();
+
+      // filter the allUsers array
+      var searchResults = allUsers.filter(function(userObj) {
+          var found = userObj["userName"].toLowerCase();
+          found = found.indexOf(searchTerm);
+
+          return (found > -1);
+      });
+
+      // append searchResults to DOM
+      redrawUserList(searchResults);
+  });
 });
