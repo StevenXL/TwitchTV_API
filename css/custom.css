@@ -22,6 +22,11 @@
   color: red;
 }
 
+.info {
+    color: #B0C4DE;
+    font-size: 70%;
+}
+
 .footer {
   background-color: #73AFB6;
   color: white;

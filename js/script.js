@@ -27,12 +27,14 @@ $(document).ready(function() {
         user["streamStatus"] = "user-on";
       }
 
-      // img
+      // img & streamInfo
       if (user["streamStatus"] === "user-on") {
         user["img"] = data["stream"]["channel"]["logo"];
+        user["streamInfo"] = data["stream"]["channel"]["status"];
       }
       else {
         user["img"] = "http://static-cdn.jtvnw.net/jtv-static/404_preview-300x300.png";
+        user["streamInfo"] = null;
       }
 
       // push to all users
@@ -71,6 +73,12 @@ $(document).ready(function() {
       nodeStructure += '<img src="' + userObject["img"] +'" alt="' + userObject["userName"] + ' Profile">';
       nodeStructure += '<span class="user-name"> ' + userObject["userName"] + '</span> ';
       nodeStructure += '<i class="fa fa-lg ' + icon + ' ' + streamStatus + '"></i>';
+
+      // add stream info if stream is on
+      if (streamStatus === "user-on") {
+          nodeStructure += '<p class="info">' + userObject["streamInfo"] + '</p>';
+      }
+
       nodeStructure += '</a></div>';
     });
 
