@@ -27,15 +27,25 @@ $(document).ready(function() {
         user["streamStatus"] = "user-on";
       }
 
-      // img & streamInfo
+      // streamInfo
       if (user["streamStatus"] === "user-on") {
-        user["img"] = data["stream"]["channel"]["logo"];
         user["streamInfo"] = data["stream"]["channel"]["status"];
       }
       else {
-        user["img"] = "http://static-cdn.jtvnw.net/jtv-static/404_preview-300x300.png";
         user["streamInfo"] = null;
       }
+
+      // grab logo from different endpoint
+      var imgEndPoint = "https://api.twitch.tv/kraken/channels/";
+
+      $.getJSON(imgEndPoint + currUser + JSONP, function(data) {
+        if (data["logo"] === null){
+          user["img"] = "http://static-cdn.jtvnw.net/jtv-static/404_preview-300x300.png"
+        }
+        else {
+          user["img"] = data["logo"];
+        }
+      });
 
       // push to all users
       allUsers.push(user);
@@ -71,8 +81,9 @@ $(document).ready(function() {
       nodeStructure += '<div class="col-md-3 user">';
       nodeStructure += '<a href="http://www.twitch.tv/' + userObject["userName"] + '">';
       nodeStructure += '<img src="' + userObject["img"] +'" alt="' + userObject["userName"] + ' Profile">';
-      nodeStructure += '<span class="user-name"> ' + userObject["userName"] + '</span> ';
-      nodeStructure += '<i class="fa fa-lg ' + icon + ' ' + streamStatus + '"></i>';
+      nodeStructure += '<span class="user-name text-left"> ' + userObject["userName"] + '</span> ';
+      nodeStructure += '<div class="col-md-1">';
+      nodeStructure += '<i class="fa fa-lg ' + icon + ' ' + streamStatus + '"></i></div>';
 
       // add stream info if stream is on
       if (streamStatus === "user-on") {

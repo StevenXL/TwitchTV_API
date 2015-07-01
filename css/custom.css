@@ -7,11 +7,14 @@
   height: 100%;
 }
 
+.user {
+  margin: 2%;
+}
+
 .user img {
   width: 30%;
   height: 30%;
   border-radius: 50%;
-  margin: 1%;
 }
 
 .user-on {
@@ -25,9 +28,4 @@
 .info {
     color: #B0C4DE;
     font-size: 70%;
-}
-
-.footer {
-  background-color: #73AFB6;
-  color: white;
 }
